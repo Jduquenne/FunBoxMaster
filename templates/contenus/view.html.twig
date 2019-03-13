@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+    {% block images %}
+        {% for contenus in contenusAll %}
+                <h1 id="images">Images</h1>
+                <div class="colcontent">
+                    <h2><strong>{{ contenus.titre }}</strong></h2><span>{{ contenus.auteur }}</span>
+                </div>
+                <div>
+                    <img src="{{ asset('ImgUpload/') ~contenus.file }}" class="img-fluid" alt="content">
+                </div>
+                <div class="footcontent">
+                    <div>
+                        <ul class="btn-vote">
+                            <li><a href="#" class="upvote"><i class="far fa-thumbs-up"></i></a></li>
+                            <li><a href="#" class="downvote"><i class="far fa-thumbs-down"></i></a></li>
+                            <li><a href="#" class="comment"><i class="far fa-comment-alt"></i></a></li>
+                            <span class="nb-comment">153 commentaires</span>
+                        </ul>
+                    </div>
+                </div>
+                <hr/>
+        {% endfor %}
+    {% endblock %}
+

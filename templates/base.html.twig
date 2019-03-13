@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="{{ app.request.locale }}">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Funbox{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
+        <link rel="stylesheet"
+              href="{{ asset('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('https://use.fontawesome.com/releases/v5.7.2/css/all.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('https://fonts.googleapis.com/css?family=Open+Sans') }}">
+        <link rel="stylesheet" href="{{ asset('https://fonts.googleapis.com/css?family=Montserrat') }}">
+    {% endblock %}
+    {% block javascripts %}
+        <script src="{{ asset('https://code.jquery.com/jquery-3.3.1.slim.min.js') }}"></script>
+        <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js') }}"></script>
+        <script src="{{ asset('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js') }}"></script>
+    {% endblock %}
+</head>
+{% block body %}
+<body>
+    <!--- Nav --->
+    <nav class="navbar navbar-expand-sm fixed-top navbar-dark bg-dark d-flex justify-content-between">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand mb-0 h1" href="#">FunBox</a>
+        <div class="order-3 searchbar">
+            <input class="search_input" type="text" name="" placeholder="Search...">
+            <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Images</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Videos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Comments</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--- Fin nav --->
+    <!-- Jumbotron --->
+    <div class="jumbotron jumbotron-fluid text-center">
+        <div class="container">
+            <h1 class="display-4">Bienvenue sur FunBox</h1>
+            <p class="lead">Mélange la Box et éclate toi !</p>
+        </div>
+    </div>
+    <!-- Fin Jumbotron --->
+    <!-- Container --->
+    <div class="container">
+        <!-- CONTAINER -->
+        <section class="row">
+            <!-- CONTENU GAUCHE -->
+            <div class="member-div col-xl-2 col-lg-3 col-md-3 col-sm-4">
+                {% if is_granted('ROLE_USER') %}
+                    <div class="member">
+                        <div class="member-view">
+                            <a href="#"><img src="{{ asset("img/hobbit.jpg") }}" class="rounded-circle mx-auto"></a>
+                            <div id="profil-p">
+                                <h2>{{ app.user.username }}</h2>
+                                <span>Member</span>
+                            </div>
+                        </div>
+                        <div class="btn-profil">
+                            <div class="btn-group-vertical" role="group" aria-label="Basic example">
+                                <button type="button" class="btn sharp btn-secondary">Add</button>
+                                <button type="button" class="btn sharp btn-secondary">Delete</button>
+                                <button type="button" class="btn sharp btn-secondary"><a href="/logout">Logout</a></button>
+                            </div>
+                        </div>
+                    </div>
+                {% elseif is_granted('ROLE_ADMIN') %}
+                    <div class="member">
+                        <div class="member-view">
+                            <a href="#"><img src="{{ asset("img/Gandalf.jpeg") }}" class="rounded-circle mx-auto"></a>
+                            <div id="profil-p">
+                                <h2>{{ app.user.username }}</h2>
+                                <span>Admin</span>
+                            </div>
+                        </div>
+                        <div class="btn-profil">
+                            <div class="btn-group-vertical" role="group" aria-label="Basic example">
+                                <button type="button" class="btn sharp btn-secondary">Add</button>
+                                <button type="button" class="btn sharp btn-secondary">Delete</button>
+                                <button type="button" class="btn sharp btn-secondary">Logout</button>
+                            </div>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="member">
+                        <div class="member-view">
+                            <a href="#"><img src="img/avatar2.jpg" class="rounded-circle mx-auto"></a>
+                            <div id="profil-p">
+                                <h2>Welcome</h2>
+                                <span>Anonyme</span>
+                            </div>
+                        </div>
+                        <div class="btn-profil">
+                            <div class="btn-group-vertical" role="group" aria-label="Basic example">
+                                <button type="button" class="btn sharp btn-outline-secondary" data-toggle="modal"
+                                        data-target="#modalLoginForm">Login</button>
+                                <button type="button" class="btn sharp btn-secondary" data-toggle="modal"
+                                        data-target="#modalRegisterForm">Register</button>
+                            </div>
+                        </div>
+                    </div>
+                    {% block login %}
+                        <!--- Login Modal --->
+
+                    {% endblock %}
+                    {% block register %}
+                        <!--- Register Modal --->
+
+                    {% endblock %}
+                {% endif %}
+
+            </div>
+            <!-- FIN - CONTENU GAUCHE -->
+            <!-- CONTENU Milieu -->
+            <div class="col-xl-10 col-lg-9 col-md-9 col-sm-8" id="contenu">
+            {% block images %}
+            {% endblock %}
+            </div>
+        </section>
+        <!-- FIN - CONTAINER SECTION -->
+    </div>
+    <!-- Fin Container --->
+    {% endblock %}
+    <!-- Footer -->
+
+    <footer class="page-footer font-small blue">
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2018 Copyright:
+            <a href="#"> Jason Duquenne Julien Liss</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
+</body>
+</html>
