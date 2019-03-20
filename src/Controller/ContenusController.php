@@ -8,7 +8,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Routing\Annotation\Route;
 
 
 class ContenusController extends Controller
@@ -63,7 +62,7 @@ class ContenusController extends Controller
     }
 
     /**
-     * @Route("/contenus", name="contenus_view")
+     * @Route("/", name="contenus_view")
      */
     public function View()
     {

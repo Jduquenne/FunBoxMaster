@@ -87,7 +87,8 @@
                         </div>
                         <div class="btn-profil">
                             <div class="btn-group-vertical" role="group" aria-label="Basic example">
-                                <button type="button" class="btn sharp btn-secondary">Add</button>
+                                <button type="button" class="btn sharp btn-secondary"><a href="/contenus/new">Add</a>
+                                </button>
                                 <button type="button" class="btn sharp btn-secondary">Delete</button>
                                 <button type="button" class="btn sharp btn-secondary">Logout</button>
                             </div>
@@ -105,9 +106,10 @@
                         <div class="btn-profil">
                             <div class="btn-group-vertical" role="group" aria-label="Basic example">
                                 <button type="button" class="btn sharp btn-outline-secondary" data-toggle="modal"
-                                        data-target="#modalLoginForm">Login</button>
+                                        data-target="#modalLoginForm"><a href="/login" id="link">Login</a></button>
                                 <button type="button" class="btn sharp btn-secondary" data-toggle="modal"
-                                        data-target="#modalRegisterForm">Register</button>
+                                        data-target="#modalRegisterForm"><a href="/register" id="link">Register</a>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -125,6 +127,8 @@
             <!-- FIN - CONTENU GAUCHE -->
             <!-- CONTENU Milieu -->
             <div class="col-xl-10 col-lg-9 col-md-9 col-sm-8" id="contenu">
+                {% block contenuadd %}
+                {% endblock %}
             {% block images %}
             {% endblock %}
             </div>
