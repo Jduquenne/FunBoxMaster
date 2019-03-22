@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="{{ asset('https://use.fontawesome.com/releases/v5.7.2/css/all.css') }}"/>
         <link rel="stylesheet" href="{{ asset('https://fonts.googleapis.com/css?family=Open+Sans') }}">
         <link rel="stylesheet" href="{{ asset('https://fonts.googleapis.com/css?family=Montserrat') }}">
+
     {% endblock %}
     {% block javascripts %}
         <script src="{{ asset('https://code.jquery.com/jquery-3.3.1.slim.min.js') }}"></script>
@@ -25,7 +26,7 @@
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand mb-0 h1" href="#">FunBox</a>
+        <a class="navbar-brand mb-0 h1" href="/">FunBox</a>
         <div class="order-3 searchbar">
             <input class="search_input" type="text" name="" placeholder="Search...">
             <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
@@ -59,27 +60,10 @@
         <section class="row">
             <!-- CONTENU GAUCHE -->
             <div class="member-div col-xl-2 col-lg-3 col-md-3 col-sm-4">
-                {% if is_granted('ROLE_USER') %}
+                {% if is_granted('ROLE_ADMIN') %}
                     <div class="member">
                         <div class="member-view">
                             <a href="#"><img src="{{ asset("img/hobbit.jpg") }}" class="rounded-circle mx-auto"></a>
-                            <div id="profil-p">
-                                <h2>{{ app.user.username }}</h2>
-                                <span>Member</span>
-                            </div>
-                        </div>
-                        <div class="btn-profil">
-                            <div class="btn-group-vertical" role="group" aria-label="Basic example">
-                                <button type="button" class="btn sharp btn-secondary">Add</button>
-                                <button type="button" class="btn sharp btn-secondary">Delete</button>
-                                <button type="button" class="btn sharp btn-secondary"><a href="/logout">Logout</a></button>
-                            </div>
-                        </div>
-                    </div>
-                {% elseif is_granted('ROLE_ADMIN') %}
-                    <div class="member">
-                        <div class="member-view">
-                            <a href="#"><img src="{{ asset("img/Gandalf.jpeg") }}" class="rounded-circle mx-auto"></a>
                             <div id="profil-p">
                                 <h2>{{ app.user.username }}</h2>
                                 <span>Admin</span>
@@ -87,10 +71,25 @@
                         </div>
                         <div class="btn-profil">
                             <div class="btn-group-vertical" role="group" aria-label="Basic example">
-                                <button type="button" class="btn sharp btn-secondary"><a href="/contenus/new">Add</a>
-                                </button>
-                                <button type="button" class="btn sharp btn-secondary">Delete</button>
-                                <button type="button" class="btn sharp btn-secondary">Logout</button>
+                                <button type="button" class="btn sharp btn-secondary"><a id="lien" href="/contenus/new">Ajouter</a></button>
+                                <button type="button" class="btn sharp btn-secondary"><a id="lien" href="#">Gestion</a></button>
+                                <button type="button" class="btn sharp btn-secondary"><a id="lien" href="/logout">Déconnexion</a></button>
+                            </div>
+                        </div>
+                    </div>
+                {% elseif is_granted('ROLE_USER') %}
+                    <div class="member">
+                        <div class="member-view">
+                            <a href="#"><img src="{{ asset("img/Gandalf.jpeg") }}" class="rounded-circle mx-auto"></a>
+                            <div id="profil-p">
+                                <h2>{{ app.user.username }}</h2>
+                                <span>Member</span>
+                            </div>
+                        </div>
+                        <div class="btn-profil">
+                            <div class="btn-group-vertical" role="group" aria-label="Basic example">
+                                <button type="button" class="btn sharp btn-secondary"><a id="lien" href="/contenus/new">Ajouter</a></button>
+                                <button type="button" class="btn sharp btn-secondary"><a id="lien" href="/logout">Déconnexion</a></button>
                             </div>
                         </div>
                     </div>
@@ -113,24 +112,24 @@
                             </div>
                         </div>
                     </div>
-                    {% block login %}
-                        <!--- Login Modal --->
-
-                    {% endblock %}
-                    {% block register %}
-                        <!--- Register Modal --->
-
-                    {% endblock %}
                 {% endif %}
 
             </div>
             <!-- FIN - CONTENU GAUCHE -->
             <!-- CONTENU Milieu -->
             <div class="col-xl-10 col-lg-9 col-md-9 col-sm-8" id="contenu">
+                {% block login %}
+                    <!--- Login Modal --->
+
+                {% endblock %}
+                {% block register %}
+                    <!--- Register Modal --->
+
+                {% endblock %}
                 {% block contenuadd %}
                 {% endblock %}
-            {% block images %}
-            {% endblock %}
+                {% block images %}
+                {% endblock %}
             </div>
         </section>
         <!-- FIN - CONTAINER SECTION -->

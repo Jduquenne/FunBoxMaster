@@ -1,24 +1,28 @@
 {% extends 'base.html.twig' %}
 
     {% block images %}
+        <h1 id="images">Images</h1>
         {% for contenus in contenusAll %}
-                <h1 id="images">Images</h1>
                 <div class="colcontent">
-                    <h2><strong>{{ contenus.titre }}</strong></h2><span>{{ contenus.auteur }}</span>
+                    <h2><strong>{{ contenus.titre }}</strong></h2>
+                    <span>{{ contenus.auteur }}</span>
+                    <p id="date">. {{ contenus.date|date('d-m-Y') }}</p>
                 </div>
                 <div>
                     <img src="{{ asset('ImgUpload/') ~contenus.file }}" class="img-fluid" alt="content">
                 </div>
                 <div class="footcontent">
-                    <div>
+                    <p id="post-meta">852</p>
+                    <div class="footinterior">
                         <ul class="btn-vote">
-                            <li><a href="#" class="upvote"><i class="far fa-thumbs-up"></i></a></li>
-                            <li><a href="#" class="downvote"><i class="far fa-thumbs-down"></i></a></li>
+                            <li><a href="#" class="upvote"><i class="fas fa-caret-square-up"></i></a></li>
+                            <li><a href="#" class="downvote"><i class="fas fa-caret-square-down"></i></a></li>
                             <li><a href="#" class="comment"><i class="far fa-comment-alt"></i></a></li>
-                            <span class="nb-comment">153 commentaires</span>
                         </ul>
                     </div>
+                    <p id="post-meta">152</p>
                 </div>
+            {% include '@FOSComment/Thread/async.html.twig' with {'id': 'foo'} %}
                 <hr/>
         {% endfor %}
     {% endblock %}

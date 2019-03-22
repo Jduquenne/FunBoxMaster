@@ -28,6 +28,7 @@ class Contenus
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", cascade={"persist"})
      */
     private $auteur;
 
@@ -35,6 +36,7 @@ class Contenus
      * @ORM\Column(type="date")
      */
     private $date;
+
 
     public function getId()
     {
@@ -70,9 +72,9 @@ class Contenus
         return $this->auteur;
     }
 
-    public function setAuteur(string $auteur): self
+    public function setAuteur(string $username): self
     {
-        $this->auteur = $auteur;
+        $this->auteur = $username;
 
         return $this;
     }

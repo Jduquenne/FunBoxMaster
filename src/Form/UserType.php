@@ -21,7 +21,7 @@ class UserType extends AbstractType
             ->add('email', EmailType::class, array('label' => 'Email', 'attr' => ['class' => 'form-control validate']))
             ->add('plainPassword', RepeatedType::class, array(
                 'type' => PasswordType::class,
-                'first_options' => array('label' => 'Mot de passe', 'attr' => ['class' => 'form-control validate']),
+                'first_options' => array('label' => 'Mot de passe', 'attr' => ['class' => 'form-control validate mb-3']),
                 'second_options' => array('label' => 'Confirmation du mot de passe', 'attr' => ['class' => 'form-control validate']),
             ))
             ->add('submit', SubmitType::class, ['label' => 'Envoyer', 'attr' => ['class' => 'btn btn-dark']]);

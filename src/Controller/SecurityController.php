@@ -27,7 +27,7 @@ class SecurityController extends Controller
             ->createNamedBuilder(null)
             ->add('_username', null, ['label' => 'Email', 'attr' => ['class' => 'form-control validate']])
             ->add('_password', PasswordType::class, ['label' => 'Mot de passe', 'attr' => ['class' => 'form-control validate']])
-            ->add('ok', SubmitType::class, ['label' => 'Ok', 'attr' => ['class' => 'btn btn-dark']])
+            ->add('ok', SubmitType::class, ['label' => 'Connexion', 'attr' => ['class' => 'btn btn-dark']])
             ->getform();
         return $this->render('security/login.html.twig', [
             'mainNavLogin' => true, 'title' => 'Connexion',

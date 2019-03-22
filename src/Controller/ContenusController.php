@@ -3,11 +3,13 @@
 namespace App\Controller;
 
 use App\Entity\Contenus;
+use App\Entity\User;
 use App\Form\ContenusType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 
 class ContenusController extends Controller
@@ -19,6 +21,9 @@ class ContenusController extends Controller
     {
 
         $contenus = new Contenus();
+        $contenus->setDate(new \DateTime('now'));
+        $contenus->setAuteur($this->getUser()->getUsername());
+
 
         $form = $this->createForm(ContenusType::class, $contenus);
         $form->handleRequest($request);
@@ -35,7 +40,7 @@ class ContenusController extends Controller
                     $fileStoreName
                 );
             } catch (FileException $e) {
-                //afficher message erreur si ça bug
+                $this->addFlash('fail', 'Bug !');
             }
 
             $contenus->setFile($fileStoreName);
@@ -45,11 +50,12 @@ class ContenusController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect('new');
+            return $this->redirect('../');
+
         }
 
         return $this->render('contenus/form.html.twig', [
-            'form' => $form->createView(),
+            'formContenu' => $form->createView(),
         ]);
     }
 

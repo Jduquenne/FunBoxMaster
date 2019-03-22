@@ -8,6 +8,9 @@ use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
+use FOS\RestBundle\FOSRestBundle;
+use FOS\CommentBundle\FOSCommentBundle;
+use JMS\SerializerBundle\JMSSerializerBundle;
 
 class Kernel extends BaseKernel
 {
@@ -33,6 +36,13 @@ class Kernel extends BaseKernel
                 yield new $class();
             }
         }
+
+        $bundles = array(
+            new FOSCommentBundle(),
+            new FOSRestBundle(),
+            new JMSSerializerBundle(),
+        );
+
     }
 
     protected function configureContainer(ContainerBuilder $container, LoaderInterface $loader)

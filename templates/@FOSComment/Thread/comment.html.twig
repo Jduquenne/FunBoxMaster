@@ -1,0 +1,4 @@
+{% set view = view|default('tree') %}
+{% set depth = depth|default(0) %}
+
+{% include '@FOSComment/Thread/comment_content.html.twig' %}

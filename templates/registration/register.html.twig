@@ -2,39 +2,37 @@
 
 
 {% block register %}
-    <!--- Register Modal --->
-    <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-         aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header text-center">
-                    <h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                {{ form_start(registrationForm) }}
-                <div class="modal-body mx-3">
-                    <div class="md-form mb-5">
-                        <i class="fas fa-user prefix grey-text"></i>
+    <div class="container register-form">
+    <div class="form">
+        <div class="note">
+            <h2>Crée ton compte !</h2>
+        </div>
+        {{ form_start(registrationForm) }}
+        <div class="form-content">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
                         {{ form_row(registrationForm.username) }}
                     </div>
-                    <div class="md-form mb-5">
-                        <i class="fas fa-envelope prefix grey-text"></i>
+                    <div class="form-group">
                         {{ form_row(registrationForm.email) }}
                     </div>
-
-                    <div class="md-form mb-5">
-                        <i class="fas fa-lock prefix grey-text"></i>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
                         {{ form_row(registrationForm.plainPassword) }}
                     </div>
                 </div>
-                <div class="modal-footer d-flex justify-content-center">
-                    {{ form_row(registrationForm.submit) }}
-                </div>
-                {{ form_end(registrationForm) }}
             </div>
+            {{ form_row(registrationForm.submit) }}
         </div>
+        {{ form_end(registrationForm) }}
+        {% for message in app.flashes('success') %}
+            <div class="flash-notice">
+                {{ message }}
+            </div>
+        {% endfor %}
     </div>
+</div>
 {% endblock %}
 

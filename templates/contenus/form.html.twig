@@ -3,12 +3,32 @@
 {% block title %}Funbox{% endblock %}
 
 {% block contenuadd %}
-<section class="row">
-    <div id="contenu-droit">
-        <section>
-            <h1>Ajouter un nouveau contenu</h1>
-
-            {{ form_start(form) }}
-
-            {{ form_end(form) }}
+    <div class="container register-form">
+        <div class="form">
+            <div class="note">
+                <h2>Ajoute ton image !</h2>
+            </div>
+            {{ form_start(formContenu) }}
+            <div class="form-content">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {{ form_row(formContenu.titre) }}
+                        </div>
+                        <hr/>
+                        <div class="form-group">
+                            {{ form_row(formContenu.file) }}
+                        </div>
+                    </div>
+                </div>
+                {{ form_row(formContenu.submit) }}
+            </div>
+            {{ form_end(formContenu) }}
+            {% for message in app.flashes('success') %}
+                <div class="flash-notice">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}
