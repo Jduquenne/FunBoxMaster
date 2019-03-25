@@ -38,9 +38,7 @@ class Kernel extends BaseKernel
         }
 
         $bundles = array(
-            new FOSCommentBundle(),
-            new FOSRestBundle(),
-            new JMSSerializerBundle(),
+
         );
 
     }
