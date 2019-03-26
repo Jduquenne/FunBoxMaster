@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -24,6 +25,7 @@ class UserType extends AbstractType
                 'first_options' => array('label' => 'Mot de passe', 'attr' => ['class' => 'form-control validate mb-3']),
                 'second_options' => array('label' => 'Confirmation du mot de passe', 'attr' => ['class' => 'form-control validate']),
             ))
+            ->add('imgProfil', FileType::class, ['label' => 'Photo de Profil', 'attr' => ['class' => 'form-control-file']])
             ->add('submit', SubmitType::class, ['label' => 'Envoyer', 'attr' => ['class' => 'btn btn-dark']]);
     }
 

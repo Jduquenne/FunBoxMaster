@@ -6,7 +6,7 @@
                 <div class="colcontent">
                     <h2><strong>{{ contenus.titre }}</strong></h2>
                     <span>{{ contenus.auteur }}</span>
-                    <p id="date">. {{ contenus.date|date('d-m-Y') }}</p>
+                    <p id="date">. {{ contenus.date|date('Y-m-d') }}</p>
                 </div>
                 <div>
                     <img src="{{ asset('ImgUpload/') ~contenus.file }}" class="img-fluid" alt="content">
@@ -24,5 +24,8 @@
                 </div>
                 <hr/>
         {% endfor %}
+        <div class="navigation">
+            {{ knp_pagination_render(contenusAll) }}
+        </div>
     {% endblock %}
 

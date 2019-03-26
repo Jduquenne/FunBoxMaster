@@ -6,3 +6,8 @@ index:
   defaults: { _controller: 'App\Controller\ContenusController::view' }
 logout:
   path: /logout
+
+easy_admin_bundle:
+  resource: "@EasyAdminBundle/Controller/AdminController.php"
+  type:     annotation
+  prefix:   /admin

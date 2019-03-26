@@ -4,8 +4,9 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-  locale: en
+  locale: fr
   file_directory: '%kernel.project_dir%/public/ImgUpload'
+  img_profil: '%kernel.project_dir%/public/ImgProfil'
 
 services:
     # default configuration for services in *this* file

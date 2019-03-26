@@ -25,6 +25,7 @@ class UserFixtures extends Fixture
         $admin = new User();
         $admin->setEmail("admin@gmail.com");
         $admin->setUsername("Admin");
+        $admin->setImgProfil("bc8a88280e139feef04d2daac2d7f041.jpeg");
         $admin->setPassword($this->encoder->encodePassword($admin, "admin"));
         $admin->setIsActive(true);
         $admin->addRole("ROLE_ADMIN");
@@ -33,6 +34,7 @@ class UserFixtures extends Fixture
         $user = new User();
         $user->setEmail("user@gmail.com");
         $user->setUsername("User");
+        $user->setImgProfil("0b671725f275b6fcf1559c95897c7ef3.jpeg");
         $user->setPassword($this->encoder->encodePassword($user, "user"));
         $user->setIsActive(true);
         $user->addRole("ROLE_USER");

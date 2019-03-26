@@ -30,6 +30,11 @@ class User implements UserInterface, \Serializable
     private $email;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $imgProfil;
+
+    /**
      * @Assert\NotBlank()
      * @Assert\Length(max=250)
      */
@@ -58,6 +63,7 @@ class User implements UserInterface, \Serializable
      * @Assert\NotBlank()
      */
     private $username;
+
 
     public function __construct()
     {
@@ -145,6 +151,18 @@ class User implements UserInterface, \Serializable
     function setEmail($email)
     {
         $this->email = $email;
+    }
+
+    public function getImgProfil()
+    {
+        return $this->imgProfil;
+    }
+
+    public function setImgProfil($imgProfil): self
+    {
+        $this->imgProfil = $imgProfil;
+
+        return $this;
     }
 
     function getPlainPassword()

@@ -4,11 +4,10 @@ body{
 
 }
 
-.row{
+.row {
     margin: auto;
     width: 100%;
 }
-
 .img-fluid{
     width: 100%;
 }
@@ -25,8 +24,6 @@ body{
     color: #f2f2f2;
     font-family: "Montserrat", sans-serif ;
     margin-top: 27px;
-
-
 }
 
 #link {
@@ -161,7 +158,7 @@ body{
     font-family: "Montserrat", sans-serif ;
     margin-top: 76px;
     background-color: #343A40;
-    color: #3E464D;
+    color: #f2f2f2;
     -webkit-box-shadow: inset 0 0 94px -2px rgba(0,0,0,1);
     -moz-box-shadow: inset 0 0 94px -2px rgba(0,0,0,1);
     box-shadow: inset 0 0 94px -2px rgba(0,0,0,1);
@@ -296,6 +293,25 @@ body{
     -webkit-box-shadow: inset 0 13px 176px -19px rgba(0,0,0,1);
     -moz-box-shadow: inset 0 13px 176px -19px rgba(0,0,0,1);
     box-shadow: inset 0 13px 176px -19px rgba(0,0,0,1);
+}
+
+
+.pagination {
+    justify-content: center;
+}
+.pagination a {
+    color: #3E464D;
+    text-decoration: none;
+}
+.pagination a:hover,
+.pagination .active span {
+    border-color: #3E464D;
+    background-color: #3E464D;
+    color: #ffffff;
+}
+.pagination a:focus {
+    background-color: #F67C1F;
+    color: #ffffff;
 }
 .note h2{
     padding-top: 20px;

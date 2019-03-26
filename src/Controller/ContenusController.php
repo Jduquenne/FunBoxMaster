@@ -5,11 +5,13 @@ namespace App\Controller;
 use App\Entity\Contenus;
 use App\Entity\User;
 use App\Form\ContenusType;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Validator\Constraints\DateTime;
 
 
 class ContenusController extends Controller
@@ -70,14 +72,24 @@ class ContenusController extends Controller
     /**
      * @Route("/", name="contenus_view")
      */
-    public function View()
+    public function View(PaginatorInterface $paginator, Request $request)
     {
         $repository = $this->getDoctrine()->getRepository(Contenus::class);
         $contenusAll = $repository->findAll();
 
 
+        $paginator = $this->get('knp_paginator');
+        $result = $paginator->paginate(
+            $contenusAll,
+            $request->query->getInt('page', 1),
+            $request->query->getInt('limit', 10)
+
+
+        );
+
+
         return $this->render('contenus/view.html.twig', [
-            'contenusAll' => $contenusAll,
+            'contenusAll' => $result,
         ]);
     }
 }

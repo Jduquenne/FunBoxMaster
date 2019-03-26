@@ -1,0 +1,25 @@
+easy_admin:
+    entities:
+       # List the entity class name you want to manage
+        - App\Entity\Contenus
+        - App\Entity\User
+
+    site_name: 'FunBox Admin'
+
+    formats:
+        date:     'd/m/Y'
+        time:     'H:i'
+        datetime: 'd/m/Y H:i:s'
+
+    design:
+        brand_color: '#3E464D'
+        color_scheme: 'dark'
+
+
+    entities:
+        entities:
+            Product:
+                class: App\Entity\Contenus
+                list:
+                    fields:
+                        - { property: 'IfVisible', type: 'boolean' }
