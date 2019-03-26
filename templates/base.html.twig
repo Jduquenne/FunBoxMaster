@@ -14,28 +14,28 @@
     {% block javascripts %}
         <script src="{{ asset('https://code.jquery.com/jquery-3.3.1.slim.min.js') }}"></script>
         <script src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js') }}"></script>
+        <script src="{{ asset('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js') }}"></script>
     {% endblock %}
 </head>
 {% block body %}
 <body>
     <!--- Nav --->
     <nav class="navbar navbar-expand-sm fixed-top navbar-dark bg-dark d-flex justify-content-between">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand mb-0 h1" href="/">FunBox</a>
+        <a class="navbar-brand mb-0 h1" href="#">FunBox</a>
         <div class="order-3 searchbar">
             <input class="search_input" type="text" name="" placeholder="Search...">
             <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
         </div>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="navbar-collapse collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Images</a>
+                    <a class="nav-link" href="/images">Images</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Videos</a>
+                    <a class="nav-link" href="/videos">Videos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Comments</a>
@@ -69,7 +69,8 @@
                         </div>
                         <div class="btn-profil">
                             <div class="btn-group-vertical" role="group" aria-label="Basic example">
-                                <button type="button" class="btn sharp btn-secondary"><a id="lien" href="/contenus/new">Ajouter</a></button>
+                                <button type="button" class="btn sharp btn-secondary"><a id="lien" href="/contenus/new/image">Image</a></button>
+                                <button type="button" class="btn sharp btn-secondary"><a id="lien" href="/contenus/new/video">Video</a></button>
                                 <button type="button" class="btn sharp btn-secondary"><a id="lien" href="/admin">Gestion</a></button>
                                 <button type="button" class="btn sharp btn-secondary"><a id="lien" href="/logout">Déconnexion</a></button>
                             </div>
@@ -86,7 +87,8 @@
                         </div>
                         <div class="btn-profil">
                             <div class="btn-group-vertical" role="group" aria-label="Basic example">
-                                <button type="button" class="btn sharp btn-secondary"><a id="lien" href="/contenus/new">Ajouter</a></button>
+                                <button type="button" class="btn sharp btn-secondary"><a id="lien" href="/contenus/new/image">Image</a></button>
+                                <button type="button" class="btn sharp btn-secondary"><a id="lien" href="/contenus/new/video">Video</a></button>
                                 <button type="button" class="btn sharp btn-secondary"><a id="lien" href="/logout">Déconnexion</a></button>
                             </div>
                         </div>

@@ -5,9 +5,6 @@ namespace App\DataFixtures;
 use App\Entity\Contenus;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Faker\Factory;
 
 class ContenusFixture extends Fixture
@@ -21,7 +18,7 @@ class ContenusFixture extends Fixture
         for ($i = 0; $i < 50; $i++) {
             $contenus = new Contenus();
             $contenus
-                ->setTitre($faker->words(3, true))
+                ->setTitre($faker->words(2, true))
                 ->setAuteur($faker->userName)
                 ->setDate($faker->dateTime($max = 'now'))
                 ->setFile($faker->file($sourceDir, $targetDir, false));
@@ -29,13 +26,5 @@ class ContenusFixture extends Fixture
             $manager->persist($contenus);
         }
         $manager->flush();
-    }
-
-    /**
-     * @return string
-     */
-    private function generateUniqueFileName()
-    {
-        return md5(uniqid());
     }
 }

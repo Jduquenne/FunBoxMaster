@@ -1,12 +1,14 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Funbox | Images{% endblock %}
+
     {% block images %}
         <h1 id="images">Images</h1>
         {% for contenus in contenusAll %}
                 <div class="colcontent">
                     <h2><strong>{{ contenus.titre }}</strong></h2>
-                    <span>{{ contenus.auteur }}</span>
-                    <p id="date">. {{ contenus.date|date('Y-m-d') }}</p>
+                    <span>{{ contenus.auteur }} </span>
+                    <p id="date">&nbsp;. {{ contenus.date|date('d-m-Y') }} . {{ contenus.date|date('H:i') }}</p>
                 </div>
                 <div>
                     <img src="{{ asset('ImgUpload/') ~contenus.file }}" class="img-fluid" alt="content">

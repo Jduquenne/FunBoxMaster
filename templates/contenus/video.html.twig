@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Funbox | Videos{% endblock %}
+
+    {% block images %}
+        <h1 id="images">Videos</h1>
+        {% for videos in videosAll %}
+            <div class="colcontent">
+                <h2><strong>{{ videos.titre }}</strong></h2>
+                <span>{{ videos.auteur }} </span>
+                <p id="date">&nbsp;. {{ videos.date|date('d-m-Y') }} . {{ videos.date|date('H:i') }}</p>
+            </div>
+            <div>
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/{{ videos.file }}"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </div>
+            <div class="footcontent">
+                <p id="post-meta">852</p>
+                <div class="footinterior">
+                    <ul class="btn-vote">
+                        <li><a href="#" class="upvote"><i class="fas fa-caret-square-up"></i></a></li>
+                        <li><a href="#" class="downvote"><i class="fas fa-caret-square-down"></i></a></li>
+                        <li><a href="#" class="comment"><i class="far fa-comment-alt"></i></a></li>
+                    </ul>
+                </div>
+                <p id="post-meta">152</p>
+            </div>
+            <hr/>
+        {% endfor %}
+        <div class="navigation">
+            {{ knp_pagination_render(videosAll) }}
+        </div>
+    {% endblock %}

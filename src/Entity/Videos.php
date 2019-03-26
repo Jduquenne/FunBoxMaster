@@ -5,9 +5,9 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\ContenusRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\VideosRepository")
  */
-class Contenus
+class Videos
 {
     /**
      * @ORM\Id()
@@ -17,12 +17,12 @@ class Contenus
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=50)
      */
     private $titre;
 
     /**
-     * @ORM\Column(type="string", length=254)
+     * @ORM\Column(type="string", length=255)
      */
     private $file;
 
@@ -37,8 +37,7 @@ class Contenus
      */
     private $date;
 
-
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }

@@ -3,23 +3,22 @@
 namespace App\Controller;
 
 use App\Entity\Contenus;
-use App\Entity\User;
 use App\Form\ContenusType;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Validator\Constraints\DateTime;
 
 
 class ContenusController extends Controller
 {
     /**
-     * @Route("/contenus/new", name="contenus_new")
+     * @Route("/contenus/new/image", name="image_new")
      */
-    public function new(Request $request)
+    public function newImage(Request $request)
     {
 
         $contenus = new Contenus();
@@ -56,7 +55,7 @@ class ContenusController extends Controller
 
         }
 
-        return $this->render('contenus/form.html.twig', [
+        return $this->render('contenus/formImage.html.twig', [
             'formContenu' => $form->createView(),
         ]);
     }
@@ -70,12 +69,15 @@ class ContenusController extends Controller
     }
 
     /**
-     * @Route("/", name="contenus_view")
+     * @Route("/images", name="images_view")
      */
-    public function View(PaginatorInterface $paginator, Request $request)
+    public function ViewImage(PaginatorInterface $paginator, Request $request)
     {
         $repository = $this->getDoctrine()->getRepository(Contenus::class);
-        $contenusAll = $repository->findAll();
+        $contenusAll = $repository->findBy(
+            array(),
+            array('date'=>'DESC')
+        );
 
 
         $paginator = $this->get('knp_paginator');
@@ -83,13 +85,11 @@ class ContenusController extends Controller
             $contenusAll,
             $request->query->getInt('page', 1),
             $request->query->getInt('limit', 10)
-
-
         );
 
-
-        return $this->render('contenus/view.html.twig', [
+        return $this->render('contenus/image.html.twig', [
             'contenusAll' => $result,
         ]);
     }
+
 }
