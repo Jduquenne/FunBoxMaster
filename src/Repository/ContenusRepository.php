@@ -19,6 +19,7 @@ class ContenusRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Contenus::class);
     }
+
     // /**
     //  * @return Contenus[] Returns an array of Contenus objects
     //  */

@@ -2,7 +2,7 @@
 
 {% block title %}Funbox | Images{% endblock %}
 
-    {% block images %}
+    {% block content %}
         <h1 id="images">Images</h1>
         {% for contenus in contenusAll %}
                 <div class="colcontent">
@@ -14,15 +14,7 @@
                     <img src="{{ asset('ImgUpload/') ~contenus.file }}" class="img-fluid" alt="content">
                 </div>
                 <div class="footcontent">
-                    <p id="post-meta">852</p>
-                    <div class="footinterior">
-                        <ul class="btn-vote">
-                            <li><a href="#" class="upvote"><i class="fas fa-caret-square-up"></i></a></li>
-                            <li><a href="#" class="downvote"><i class="fas fa-caret-square-down"></i></a></li>
-                            <li><a href="#" class="comment"><i class="far fa-comment-alt"></i></a></li>
-                        </ul>
-                    </div>
-                    <p id="post-meta">152</p>
+                    {% include '@FOSComment/Thread/async.html.twig' with {'id': 'foo'} %}
                 </div>
                 <hr/>
         {% endfor %}

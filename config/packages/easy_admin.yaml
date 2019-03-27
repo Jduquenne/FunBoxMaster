@@ -2,8 +2,9 @@ easy_admin:
     entities:
        # List the entity class name you want to manage
         - App\Entity\Contenus
-        - App\Entity\User
         - App\Entity\Videos
+        - App\Entity\User
+
 
     site_name: 'FunBox Admin'
 

@@ -1,13 +1,20 @@
 # This file is the entry point to configure your own HTTP routes.
 # Files in the routes/ subdirectory configure the routes for your dependencies.
 
-index:
+index1:
   path: /
   defaults: { _controller: 'App\Controller\ContenusController::view' }
 logout:
   path: /logout
+  defaults: { _controller: 'App\Controller\SecurityController::view' }
 
 easy_admin_bundle:
   resource: "@EasyAdminBundle/Controller/AdminController.php"
   type:     annotation
   prefix:   /admin
+
+fos_comment_api:
+  type: rest
+  resource: "@FOSCommentBundle/Resources/config/routing.yml"
+  prefix: /api
+  defaults: { _format: html }

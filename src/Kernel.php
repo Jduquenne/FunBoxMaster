@@ -2,15 +2,15 @@
 
 namespace App;
 
+use FOS\CommentBundle\FOSCommentBundle;
+use FOS\RestBundle\FOSRestBundle;
+use JMS\SerializerBundle\JMSSerializerBundle;
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\Config\Resource\FileResource;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Kernel as BaseKernel;
 use Symfony\Component\Routing\RouteCollectionBuilder;
-use FOS\RestBundle\FOSRestBundle;
-use FOS\CommentBundle\FOSCommentBundle;
-use JMS\SerializerBundle\JMSSerializerBundle;
 
 class Kernel extends BaseKernel
 {
@@ -38,7 +38,9 @@ class Kernel extends BaseKernel
         }
 
         $bundles = array(
-
+            new FOSRestBundle(),
+            new FOSCommentBundle(),
+            new JMSSerializerBundle(),
         );
 
     }
