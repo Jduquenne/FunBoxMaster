@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Funbox | Commentaire de ( photo ){% endblock %}
+
+    {% block content %}
+        <h1 id="images">Images</h1>
+        {% block contenu %}
+            <div class="colcontent">
+                <h2><strong>{{ contenu.titre }}</strong></h2>
+                <span>{{ contenu.auteur }} </span>
+            </div>
+            <div>
+                <img src="{{ asset('ImgUpload/') ~contenu.file }}" class="img-fluid" alt="content">
+            </div>
+            <div class="footcontent">
+                <p id="date">Crée le <strong>{{ contenu.date|date('d-m-Y') }}</strong> à <strong>{{ contenu.date|date('H:i') }}</strong></p>
+            </div>
+            {% include '@FOSComment/Thread/async.html.twig' with {'id': 'contenu'} %}
+            <hr/>
+        {% endblock %}
+    {% endblock %}

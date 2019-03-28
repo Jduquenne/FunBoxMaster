@@ -33,7 +33,7 @@ class VideosController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect('../../videos');
+            return $this->redirect('/videos');
 
         }
 

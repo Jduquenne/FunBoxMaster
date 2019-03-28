@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Funbox | Commentaire de ( photo ){% endblock %}
+
+    {% block content %}
+        <h1 id="images">Video</h1>
+        {% block video %}
+            <div class="colcontent">
+                <h2><strong>{{ video.titre }}</strong></h2>
+                <span>{{ video.auteur }} </span>
+            </div>
+            <div>
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/{{ video.file }}"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </div>
+            <div class="footcontent">
+                <p id="date">Crée le <strong>{{ video.date|date('d-m-Y') }}</strong> à <strong>{{ video.date|date('H:i') }}</strong></p>
+            </div>
+            {% include '@FOSComment/Thread/async.html.twig' with {'id': 'video'} %}
+            <hr/>
+        {% endblock %}
+    {% endblock %}

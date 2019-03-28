@@ -7,11 +7,14 @@ use App\Entity\Videos;
 use App\Form\ContenusType;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\SearchType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-
+use Symfony\Component\Validator\Constraints\DateTime;
+use Symfony\Component\Validator\Constraints\Length;
 
 
 class ContenusController extends Controller
@@ -54,7 +57,7 @@ class ContenusController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect('../../');
+            return $this->redirect('../');
 
         }
 
