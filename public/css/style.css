@@ -20,12 +20,6 @@ body{
     width: 30%;
 }
 
-#date{
-    color: #f2f2f2;
-    font-family: "Montserrat", sans-serif ;
-    margin-top: 27px;
-}
-
 #link {
     text-decoration: none;
     color: #f2f2f2;
@@ -64,6 +58,12 @@ body{
     padding-top: 3%;
     padding-right: 5%;
     margin: 0 auto;
+    transition: 0.5s;
+}
+
+.btn-profil:hover{
+    padding-top: 10px;
+    transition: 0.5s;
 }
 .btn-group-vertical{
     -webkit-box-shadow: 9px 9px 0 -4px rgba(0,0,0,0.4);
@@ -102,6 +102,16 @@ body{
 .navbar-toggler-icon{
     color: #f2f2f2;
     border-color: #f2f2f2;
+}
+
+.nav-link{
+    font-size: 1em;
+    transition: 15ms;
+}
+
+.nav-link:hover{
+    font-size: 1.1em;
+    transition: 15ms;
 }
 
 .searchbar{
@@ -200,35 +210,38 @@ body{
     width: 50%;
     height: 70px;
 }
+#date{
+    width: 50%;
+    margin-left: 30px;
+    color: #f2f2f2;
+    font-family: "Montserrat", sans-serif ;
+    margin-top: 25px;
+}
 
 #post-meta{
     font-family: "Montserrat", sans-serif ;
-    display: block;
-    margin: auto;
+    margin-left: 15px;
     color: #f2f2f2;
     font-size: 1.5em;
 }
 .btn-vote {
-    margin: 17px auto;
-
+    width: 50%;
 }
 .btn-vote li {
-    margin: 0 8px 0 0;
-    position: relative;
     list-style: none;
 }
 .btn-vote a {
     box-sizing: border-box;
     width: 30px;
     height: 30px;
-    display: block;
+    display: inline;
     text-align: center;
     position: relative;
-    float: left;
-    margin: 0 10px 0 0;
 }
 .btn-vote i {
-    padding-top: 3px;
+    position: relative;
+    margin-top: 20px;
+    margin-left: 35px;
     color: #f2f2f2;
     font-size: 1.9em;
 }
@@ -387,26 +400,25 @@ body{
 
     }
 
+    #date{
+        margin-left: 12px;
+        margin-top: 9px;
+        font-size: 0.6em;
+    }
+
     #post-meta{
         font-size: 0.7em;
-    }
-
-    .btn-vote {
-        margin: auto;
-    }
-
-    .btn-vote a {
-        width: 20px;
-        height: 20px;
-        margin: 0 3px 0 0;
+        margin-left: 5px;
     }
 
     .btn-vote i {
-        font-size: 0.8em;
+        font-size: 1em;
+        margin-top: 7px;
+        margin-left: 50%;
     }
     .btn-vote i:hover {
-        font-size: 0.7em;
-        transition: 0.8ms;
+        font-size: 0.8em;
+        transition: 0.5s;
     }
 
 
@@ -434,35 +446,26 @@ body{
         margin-left: 20px;
     }
 
-    #post-meta{
-        font-family: "Montserrat", sans-serif ;
-        display: block;
-        margin: auto;
-        color: #f2f2f2;
-        font-size: 1.5em;
+    #date{
+        font-size: 1em;
+        margin-left: 30px;
+        margin-top: 25px;
     }
 
-    .btn-vote a {
-        box-sizing: border-box;
-        width: 30px;
-        height: 30px;
-        display: block;
-        text-align: center;
-        position: relative;
-        float: left;
-        margin: 0 10px 0 0;
+    #post-meta{
+        margin-left: 15px;
+        font-size: 1.5em;
     }
 
     .btn-vote i {
-        padding-top: 3px;
-        color: #f2f2f2;
-        font-size: 1.7em;
+        position: relative;
+        margin-top: 22px;
+        margin-left: 50%;
+        font-size: 1.9em;
     }
     .btn-vote i:hover {
-        padding-top: 3px;
-        color: #F67C1F;
-        font-size: 1.5em;
-        transition: 0.3s;
+        font-size: 1.7em;
+        transition: 0.8ms;
     }
 }
 
@@ -470,6 +473,8 @@ body{
     .btn-profil{
         padding-top: 0;
     }
+
+
 }
 
 @media (min-width: 1200px) {

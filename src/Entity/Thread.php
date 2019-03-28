@@ -9,7 +9,7 @@ use FOS\CommentBundle\Entity\Thread as BaseThread;
  * @ORM\Entity
  * @ORM\ChangeTrackingPolicy("DEFERRED_EXPLICIT")
  */
-class Thread
+class Thread extends BaseThread
 {
     /**
      * @var string $id

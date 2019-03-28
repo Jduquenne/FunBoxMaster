@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="{{ asset('https://fonts.googleapis.com/css?family=Open+Sans') }}">
         <link rel="stylesheet" href="{{ asset('https://fonts.googleapis.com/css?family=Montserrat') }}">
         <link rel="stylesheet" href="{{ asset('css/style.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('@FOSCommentBundle/Resources/public/css/comments.css') }}" type="text/css" />
     {% endblock %}
     {% block javascripts %}
         <script src="{{ asset('https://code.jquery.com/jquery-3.3.1.min.js') }}"></script>
@@ -69,10 +70,10 @@
                         </div>
                         <div class="btn-profil">
                             <div class="btn-group-vertical" role="group" aria-label="Basic example">
-                                <button type="button" class="btn sharp btn-secondary"><a id="lien" href="/contenus/new/image">Image</a></button>
-                                <button type="button" class="btn sharp btn-secondary"><a id="lien" href="/contenus/new/video">Video</a></button>
-                                <button type="button" class="btn sharp btn-secondary"><a id="lien" href="/admin">Gestion</a></button>
-                                <button type="button" class="btn sharp btn-secondary"><a id="lien" href="/logout">Déconnexion</a></button>
+                                <a href="/contenus/new/image" class="btn sharp btn-secondary" id="lien">Image</a>
+                                <a href="/contenus/new/video" class="btn sharp btn-secondary" id="lien">Video</a>
+                                <a href="/admin" class="btn sharp btn-secondary" id="lien">Admin</a>
+                                <a href="/logout" class="btn sharp btn-secondary" id="lien">Déconnexion</a>
                             </div>
                         </div>
                     </div>
@@ -87,9 +88,9 @@
                         </div>
                         <div class="btn-profil">
                             <div class="btn-group-vertical" role="group" aria-label="Basic example">
-                                <button type="button" class="btn sharp btn-secondary"><a id="lien" href="/contenus/new/image">Image</a></button>
-                                <button type="button" class="btn sharp btn-secondary"><a id="lien" href="/contenus/new/video">Video</a></button>
-                                <button type="button" class="btn sharp btn-secondary"><a id="lien" href="/logout">Déconnexion</a></button>
+                                <a href="/contenus/new/image" class="btn sharp btn-secondary" id="lien">Image</a>
+                                <a href="/contenus/new/video" class="btn sharp btn-secondary" id="lien">Video</a>
+                                <a href="/logout" class="btn sharp btn-secondary" id="lien">Déconnexion</a>
                             </div>
                         </div>
                     </div>
@@ -104,11 +105,8 @@
                         </div>
                         <div class="btn-profil">
                             <div class="btn-group-vertical" role="group" aria-label="Basic example">
-                                <button type="button" class="btn sharp btn-outline-secondary" data-toggle="modal"
-                                        data-target="#modalLoginForm"><a href="/login" id="link">Login</a></button>
-                                <button type="button" class="btn sharp btn-secondary" data-toggle="modal"
-                                        data-target="#modalRegisterForm"><a href="/register" id="link">Register</a>
-                                </button>
+                                <a href="/login" class="btn sharp btn-secondary" id="lien">Login</a>
+                                <a href="/register" class="btn sharp btn-secondary" id="lien">Register</a>
                             </div>
                         </div>
                     </div>
@@ -143,7 +141,7 @@
 
         <!-- Copyright -->
         <div class="footer-copyright text-center py-3">© 2018 Copyright:
-            <a href="#"> Jason Duquenne Julien Liss</a>
+            <a href="#"> Jason Duquenne</a>
         </div>
         <!-- Copyright -->
 

@@ -8,13 +8,15 @@
             <div class="colcontent">
                 <h2><strong>{{ contenus.titre }}</strong></h2>
                 <span>{{ contenus.auteur }} </span>
-                <p id="date">&nbsp;. {{ contenus.date|date('d-m-Y') }} . {{ contenus.date|date('H:i') }}</p>
             </div>
             <div>
                 <img src="{{ asset('ImgUpload/') ~contenus.file }}" class="img-fluid" alt="content">
             </div>
             <div class="footcontent">
-                {% include '@FOSComment/Thread/async.html.twig' with {'id': 'foo'} %}
+                <p id="date">Crée le <strong>{{ contenus.date|date('d-m-Y') }}</strong> à <strong>{{ contenus.date|date('H:i') }}</strong></p>
+                <ul class="btn-vote">
+                    <li><a href="#" class="comment"><i class="far fa-comment-alt"></i></a><span id="post-meta">152</span></li>
+                </ul>
             </div>
             <hr/>
         {% endfor %}
@@ -30,7 +32,13 @@
                         allowfullscreen></iframe>
             </div>
             <div class="footcontent">
-                {% include '@FOSComment/Thread/async.html.twig' with {'id': 'foo'} %}
+                <p id="post-meta">852</p>
+                <ul class="btn-vote">
+                    <li><a href="#" class="upvote"><i class="fas fa-caret-square-up"></i></a></li>
+                    <li><a href="#" class="downvote"><i class="fas fa-caret-square-down"></i></a></li>
+                    <li><a href="#" class="comment"><i class="far fa-comment-alt"></i></a></li>
+                </ul>
+                <p id="post-meta">152</p>
             </div>
             <hr/>
         {% endfor %}

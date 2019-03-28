@@ -4,6 +4,7 @@ fos_comment:
     model:
       comment: App\Entity\Comment
       thread: App\Entity\Thread
+      vote: App\Entity\Vote
 
   acl_roles:
     comment:

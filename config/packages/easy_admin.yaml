@@ -4,6 +4,9 @@ easy_admin:
         - App\Entity\Contenus
         - App\Entity\Videos
         - App\Entity\User
+        - App\Entity\Comment
+        - App\Entity\Thread
+        - App\Entity\Vote
 
 
     site_name: 'FunBox Admin'
@@ -16,6 +19,20 @@ easy_admin:
     design:
         brand_color: '#3E464D'
         color_scheme: 'dark'
+        menu:
+            - { label: 'Liens'}
+            - { label: 'Index', url: '/', rel: 'index', icon: 'home' }
+            - { label: 'Images', url: '/images', rel: 'index', icon: 'image' }
+            - { label: 'Videos', url: '/videos', rel: 'index', icon: 'youtube' }
+            - { label: 'Contenus'}
+            - { entity: 'Contenus', rel: 'dns-prefetch preconnect', params: { sortField: 'date', sortDirection: 'ASC' },label: 'Images', icon: 'image' }
+            - { entity: 'Videos', rel: 'dns-prefetch preconnect', icon: 'youtube' }
+            - { label: 'Utilisateur'}
+            - { entity: 'User', rel: 'dns-prefetch preconnect', icon: 'users' }
+            - { label: 'Commentaire'}
+            - { entity: 'Comment', rel: 'dns-prefetch preconnect', icon: 'comments' }
+            - { entity: 'Thread', rel: 'dns-prefetch preconnect', icon: 'comments' }
+            - { entity: 'Vote', rel: 'dns-prefetch preconnect', icon: 'thumbs-up' }
 
 
     entities:
