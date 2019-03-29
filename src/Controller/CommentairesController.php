@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class CommentairesController extends Controller
 {
     /**
-     * @Route("/image/{id}", name="commentaires_image")
+     * @Route("/images/{id}", name="commentaires_image")
      */
 
 
@@ -24,7 +24,7 @@ class CommentairesController extends Controller
     {
 
         $repository = $this->getDoctrine()->getRepository(Contenus::class);
-        $contenu = $repository->findOneById($id);
+        $contenu = $repository->find($id);
 
 
         return $this->render('commentaires/commentimage.html.twig', [
@@ -33,7 +33,7 @@ class CommentairesController extends Controller
 
     }
     /**
-     * @Route("/video/{id}", name="commentaires_video")
+     * @Route("/videos/{id}", name="commentaires_video")
      */
 
 
@@ -41,7 +41,7 @@ class CommentairesController extends Controller
     {
 
         $repository = $this->getDoctrine()->getRepository(Videos::class);
-        $video = $repository->findOneById($id);
+        $video = $repository->find($id);
 
 
         return $this->render('commentaires/commentvideo.html.twig', [

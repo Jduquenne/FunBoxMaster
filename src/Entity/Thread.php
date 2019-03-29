@@ -16,8 +16,6 @@ class Thread extends BaseThread
      *
      * @ORM\Id
      * @ORM\Column(type="string")
-     * @ORM\ManyToOne(targetEntity="Contenus", inversedBy="comments")
-     * @ORM\JoinColumn(name="contenus_id", referencedColumnName="id")
      */
     protected $id;
 }

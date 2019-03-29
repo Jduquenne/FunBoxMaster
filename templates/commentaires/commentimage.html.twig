@@ -15,7 +15,44 @@
             <div class="footcontent">
                 <p id="date">Crée le <strong>{{ contenu.date|date('d-m-Y') }}</strong> à <strong>{{ contenu.date|date('H:i') }}</strong></p>
             </div>
-            {% include '@FOSComment/Thread/async.html.twig' with {'id': 'contenu'} %}
+            <div class="comments">
+                <div class="comment-wrap">
+                    <div class="photo">
+                        <img class="avatar" src="{{ asset("public/img/Gandalf.jpeg") }}">
+                    </div>
+                    <div class="comment-block">
+                        <form action="">
+                            <textarea name="" id="" cols="30" rows="3" placeholder="Add comment..."></textarea>
+                        </form>
+                        <button class="btn btn-dark">Send</button>
+                    </div>
+                </div>
+            </div>
+            <div class="comment-wrap">
+                <div class="photo">
+                    <img class="avatar" src="{{ asset("public/img/hobbit.jpg") }}">
+                </div>
+                <div class="comment-block">
+                    <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto temporibus iste nostrum dolorem natus recusandae incidunt voluptatum. Eligendi voluptatum ducimus architecto tempore, quaerat explicabo veniam fuga corporis totam reprehenderit quasi
+                        sapiente modi tempora at perspiciatis mollitia, dolores voluptate. Cumque, corrupti?</p>
+                    <div class="bottom-comment">
+                        <div class="comment-date">Mars 8, 2019 @ 15:17</div>
+                    </div>
+                </div>
+            </div>
+            <div class="comment-wrap">
+                <div class="photo">
+                    <img class="avatar" src="{{ asset("public/img/sam.jpg") }}">
+                </div>
+                <div class="comment-block">
+                    <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto temporibus iste nostrum dolorem natus recusandae incidunt voluptatum. Eligendi voluptatum ducimus architecto tempore, quaerat explicabo veniam fuga corporis totam reprehenderit quasi
+                        sapiente modi tempora at perspiciatis mollitia, dolores voluptate. Cumque, corrupti?</p>
+                    <div class="bottom-comment">
+                        <div class="comment-date">Mars 8, 2019 @ 15:17</div>
+                    </div>
+                </div>
+            </div>
+            {% include '@FOSComment/Thread/async.html.twig' with {'id': 'id'~contenu.id } %}
             <hr/>
         {% endblock %}
     {% endblock %}

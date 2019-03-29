@@ -15,10 +15,9 @@
                 <div class="footcontent">
                     <p id="date">Crée le <strong>{{ contenus.date|date('d-m-Y') }}</strong> à <strong>{{ contenus.date|date('H:i') }}</strong></p>
                     <ul class="btn-vote">
-                        <li><a href="/commentaires/image/{id}" class="comment"><i class="far fa-comment-alt"></i></a><span id="post-meta">{{ contenus.id }}</span></li>
+                        <li><a href="/commentaires/images/{{ contenu.id }}" class="comment"><i class="far fa-comment-alt"></i></a><span id="post-meta">{{ contenus.id }}</span></li>
                     </ul>
                 </div>
-        {#{% include '@FOSComment/Thread/async.html.twig' with {'id': 'foo'} %}#}
             <hr/>
         {% endfor %}
         <div class="navigation">

@@ -15,7 +15,7 @@
             <div class="footcontent">
                 <p id="date">Crée le <strong>{{ contenus.date|date('d-m-Y') }}</strong> à <strong>{{ contenus.date|date('H:i') }}</strong></p>
                 <ul class="btn-vote">
-                    <li><a href="/commentaires/image/{id}" class="comment"><i class="far fa-comment-alt"></i></a><span id="post-meta">{{ contenus.id }}</span></li>
+                    <li><a href="/commentaires/images/{{ contenus.id }}" class="comment"><i class="far fa-comment-alt"></i></a><span id="post-meta">{{ contenus.id }}</span></li>
                 </ul>
             </div>
             <hr/>
@@ -24,6 +24,7 @@
             <div class="colcontent">
                 <h2><strong>{{ videos.titre }}</strong></h2>
                 <span>{{ videos.auteur }} </span>
+                <p id="date">&nbsp;. {{ videos.date|date('d-m-Y') }} . {{ videos.date|date('H:i') }}</p>
             </div>
             <div>
                 <iframe width="100%" height="315" src="https://www.youtube.com/embed/{{ videos.file }}"
@@ -31,9 +32,9 @@
                         allowfullscreen></iframe>
             </div>
             <div class="footcontent">
-                <<p id="date">Crée le <strong>{{ videos.date|date('d-m-Y') }}</strong> à <strong>{{ videos.date|date('H:i') }}</strong></p>
+                <p id="date">Crée le <strong>{{ videos.date|date('d-m-Y') }}</strong> à <strong>{{ videos.date|date('H:i') }}</strong></p>
                 <ul class="btn-vote">
-                    <li><a href="/commentaires/video/{id}" class="comment"><i class="far fa-comment-alt"></i></a><span id="post-meta">{{ videos.id }}</span></li>
+                    <li><a href="/commentaires/videos/{{ videos.id }}" class="comment"><i class="far fa-comment-alt"></i></a><span id="post-meta">{{ videos.id }}</span></li>
                 </ul>
             </div>
             <hr/>
